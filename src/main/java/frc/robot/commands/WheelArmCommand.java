@@ -12,6 +12,7 @@ public class WheelArmCommand extends CommandBase {
 	DoubleSupplier wheelTurn;
 	
 	public WheelArmCommand(ArmSubsystem subsystem, DoubleSupplier w) {
+		armSubsystem=subsystem;
 		wheelTurn = w;
 		addRequirements(armSubsystem);
 	}

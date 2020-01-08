@@ -22,11 +22,12 @@ public class RobotContainer {
 
    
 
-    DrivingSubsystem drivingSubsystem;
-    ArmSubsystem armSubsystem;
-    EncoderSubsystem encoderSubsystem;
+    DrivingSubsystem drivingSubsystem = new DrivingSubsystem();
+    ArmSubsystem armSubsystem = new ArmSubsystem();
+    EncoderSubsystem encoderSubsystem = new EncoderSubsystem();
     public RobotContainer(){
-      
+        configureButtonBindings();
+
         drivingSubsystem.setDefaultCommand(
             new DirectDriveCommand(
                 drivingSubsystem,
@@ -37,9 +38,6 @@ public class RobotContainer {
                 armSubsystem,
                 () -> getArm()));
 
-       
-    
-        configureButtonBindings();
        
     }
   
