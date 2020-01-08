@@ -8,16 +8,16 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class DirectDriveCommand extends CommandBase {
 	
-	private final DrivingSubsystem drivingSubsystem;
+	private final DrivingSubsystem dSub;
 	private final DoubleSupplier forward;
 	private final DoubleSupplier rotation;
 	
 	public DirectDriveCommand(DrivingSubsystem subsystem, DoubleSupplier f, DoubleSupplier r) {
 	  // Use addRequirements() here to declare subsystem dependencies.
-	  drivingSubsystem = subsystem;
+	  dSub = subsystem;
 	  forward=f;
 	  rotation=r;
-	  addRequirements(drivingSubsystem);
+	  addRequirements(dSub);
 	}
   
 
@@ -27,7 +27,7 @@ public class DirectDriveCommand extends CommandBase {
 	}
 
 	public void execute() {
-		Robot.drivingSubsystem.drive(forward.getAsDouble(), rotation.getAsDouble()); // Use input directly from the controller
+		dSub.drive(forward.getAsDouble(), rotation.getAsDouble()); // Use input directly from the controller
 	}
 
 	public boolean isFinished() {
