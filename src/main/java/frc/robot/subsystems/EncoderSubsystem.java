@@ -38,8 +38,8 @@ public class EncoderSubsystem extends SubsystemBase {
     // Drives forward continuously at half speed, using the encoders to stabilize the heading
    System.out.println(Constants.leftEncoder.getDistance());
    System.out.println(Constants.rightEncoder.getDistance());
-
-    if(Constants.leftEncoder.get() < 256 && Constants.rightEncoder.get() < 256 ) {
+    //256
+    if(Math.abs(Constants.leftEncoder.get()) < 10000 && Math.abs(Constants.rightEncoder.get()) < 10000 ) {
        drive.tankDrive(0.25,0.25);
    } else {
        drive.tankDrive(0, 0);
@@ -47,8 +47,8 @@ public class EncoderSubsystem extends SubsystemBase {
  
   }
   public void stop() {
+
     Constants.rightEncoder.reset();
     Constants.leftEncoder.reset();
-   drive.tankDrive(0, 0);
   }
 }

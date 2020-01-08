@@ -60,8 +60,8 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Auto choices", m_chooser);
     Constants.leftEncoder.setDistancePerPulse(Constants.encoderDistance);
 		Constants.rightEncoder.setDistancePerPulse(Constants.encoderDistance);
-		Constants.rightEncoder.reset();
-		Constants.leftEncoder.reset();
+		// Constants.rightEncoder.reset();
+		// Constants.leftEncoder.reset();
      drivingSubsystem.initDrive();
 	armSubsystem.initArm();
   encoderSubsystem.initEncoder();
@@ -113,8 +113,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-    SmartDashboard.putNumber("encoder value right", (Constants.rightEncoder.get()));
-    SmartDashboard.putNumber("encoder value left",  (Constants.leftEncoder.get()));
+    SmartDashboard.putNumber("encoder value right", Math.abs(Constants.rightEncoder.get()));
+    SmartDashboard.putNumber("encoder value left",  Math.abs(Constants.leftEncoder.get()));
 	//    // Assuming no wheel slip, the difference in encoder distances is proportional to the heading error
 	//    double error = Constants.leftEncoder.getDistance() - Constants.rightEncoder.getDistance();
 
@@ -143,6 +143,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    
     String gameData;
 gameData = DriverStation.getInstance().getGameSpecificMessage();
 if(gameData.length() > 0)
