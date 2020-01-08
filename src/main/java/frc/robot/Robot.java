@@ -43,7 +43,7 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   WPI_TalonSRX leftMotors = new WPI_TalonSRX(2);
   WPI_TalonSRX rightMotors = new WPI_TalonSRX(3);
-
+  RobotContainer OI = new RobotContainer();
   public DifferentialDrive drive = new DifferentialDrive(leftMotors, rightMotors);
 
 
@@ -177,7 +177,6 @@ if(gameData.length() > 0)
 }
 CommandScheduler.getInstance().run();
 
-	encoderSubsystem.motorSet();
 
   }
 

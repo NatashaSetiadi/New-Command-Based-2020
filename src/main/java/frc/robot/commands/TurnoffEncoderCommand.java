@@ -11,12 +11,13 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.EncoderSubsystem;
 
-public class SetEncoderCommand extends CommandBase {
+public class TurnoffEncoderCommand extends CommandBase {
   /**
    * Creates a new SetEncoderCommand.
    */
+
   private final EncoderSubsystem encoderSubsystem;
-  public SetEncoderCommand(EncoderSubsystem subsystem) {
+  public TurnoffEncoderCommand(EncoderSubsystem subsystem) {
     // Use addRequirements() here to declare subsystem dependencies.
     encoderSubsystem = subsystem;
     addRequirements(encoderSubsystem);
@@ -30,7 +31,8 @@ public class SetEncoderCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      encoderSubsystem.motorSet();
+    
+      encoderSubsystem.stop();
     
   }
 

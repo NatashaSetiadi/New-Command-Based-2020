@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.DirectDriveCommand;
 import frc.robot.commands.SetEncoderCommand;
+import frc.robot.commands.TurnoffEncoderCommand;
 import frc.robot.commands.WheelArmCommand;
 
 import frc.robot.subsystems.ArmSubsystem;
@@ -58,9 +59,9 @@ public class RobotContainer {
     }
     private void configureButtonBindings() {
         final JoystickButton encoderButton = new JoystickButton(controller2, XboxController.Button.kY.value);
-        encoderButton.whenActive(new SetEncoderCommand(encoderSubsystem));
-
-
+        
+        encoderButton.whenPressed(new SetEncoderCommand(encoderSubsystem));
+        encoderButton.whenReleased(new TurnoffEncoderCommand(encoderSubsystem));
     }
   
   

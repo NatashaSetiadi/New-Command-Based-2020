@@ -21,7 +21,7 @@ public class EncoderSubsystem extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   public static DifferentialDrive drive;
-
+  
  
   public static void initEncoder(){
     WPI_TalonSRX leftMotors = new WPI_TalonSRX(2);
@@ -47,6 +47,8 @@ public class EncoderSubsystem extends SubsystemBase {
  
   }
   public void stop() {
+    Constants.rightEncoder.reset();
+    Constants.leftEncoder.reset();
    drive.tankDrive(0, 0);
   }
 }
